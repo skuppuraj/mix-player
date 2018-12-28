@@ -48,3 +48,13 @@ app.on('ready', () => {
 	  })
   })
 })
+
+app.on('ready', () => {
+  globalShortcut.register('F7', () => {
+    console.log("kuppuraj");
+	contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true)
+	  .then((result) => {
+	    console.log(result) // Will be the JSON object from the fetch call
+	  })
+  })
+})
