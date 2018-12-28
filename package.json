@@ -1,0 +1,23 @@
+{
+  "name": "mix-player",
+  "version": "1.0.0",
+  "description": "One music player to controll multiple straming platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skuppuraj/mix-player.git"
+  },
+  "keywords": [
+    "Music",
+    "player"
+  ],
+  "author": "Kuppuraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skuppuraj/mix-player/issues"
+  },
+  "homepage": "https://github.com/skuppuraj/mix-player#readme"
+}
