@@ -2,9 +2,10 @@
   "name": "mix-player",
   "version": "1.0.0",
   "description": "One music player to controll multiple straming platform",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/skuppuraj/mix-player/issues"
   },
-  "homepage": "https://github.com/skuppuraj/mix-player#readme"
+  "homepage": "https://github.com/skuppuraj/mix-player#readme",
+  "devDependencies": {
+    "electron": "^4.0.0"
+  }
 }
