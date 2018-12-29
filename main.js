@@ -7,7 +7,7 @@ function createWindow(){
 	win = new BrowserWindow({width: 800, height: 1000,webPreferences:{nodeIntegration: false}});
 	contents = win.webContents;
 
-	// win.loadURL('https://youtube.com');
+	win.loadURL('https://youtube.com');
 	// win.loadURL('https://gaana.com');
 	// win.webContents.openDevTools();
 	win.on("closed", ()=>{
