@@ -7,8 +7,8 @@ function createWindow(){
 	win = new BrowserWindow({width: 800, height: 1000,webPreferences:{nodeIntegration: false}});
 	contents = win.webContents;
 
-	win.loadURL('https://youtube.com');
-	win.loadURL('https://gaana.com');
+	// win.loadURL('https://youtube.com');
+	// win.loadURL('https://gaana.com');
 	// win.webContents.openDevTools();
 	win.on("closed", ()=>{
 		win = null;
@@ -23,6 +23,7 @@ function createWindow(){
 		contents.executeJavaScript("document.querySelector('.next-song').click()", true);
 	})
 	globalShortcut.register('F7', () => {
+		contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true);
 		contents.executeJavaScript("document.querySelector('.prev-song').click()", true);
 	})
 }
