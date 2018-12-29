@@ -8,7 +8,7 @@ function createWindow(){
 	contents = win.webContents;
 
 	win.loadFile('index.html');
-	win.webContents.openDevTools();
+	// win.webContents.openDevTools();
 	win.on("closed", ()=>{
 		win = null;
 	});
@@ -31,30 +31,18 @@ app.on('activate', ()=>{
 
 app.on('ready', () => {
   globalShortcut.register('F8', () => {
-    console.log("kuppuraj");
-	contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true)
-	  .then((result) => {
-	    console.log(result) // Will be the JSON object from the fetch call
-	  })
+	contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true);
   })
 })
 
 app.on('ready', () => {
   globalShortcut.register('F9', () => {
-    console.log("kuppuraj");
-	contents.executeJavaScript("document.querySelector('.ytp-next-button').click()", true)
-	  .then((result) => {
-	    console.log(result) // Will be the JSON object from the fetch call
-	  })
+	contents.executeJavaScript("document.querySelector('.ytp-next-button').click()", true);
   })
 })
 
 app.on('ready', () => {
   globalShortcut.register('F7', () => {
-    console.log("kuppuraj");
-	contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true)
-	  .then((result) => {
-	    console.log(result) // Will be the JSON object from the fetch call
-	  })
+	contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true);
   })
 })
