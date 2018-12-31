@@ -7,15 +7,15 @@ const template = [
   {
   	label: "Main",
   	submenu:[
-  		{
-  			label: "YouTube.com",
-  			click() {  win.loadURL('https://youtube.com') }
+	  {
+	    label: "YouTube.com",
+	    click() {  win.loadURL('https://youtube.com') }
 
-  		},
-  		{
-  			label: "Gaana.com",
-  			click() {  win.loadURL('https://gaana.com') }
-  		}
+	  },
+	  {
+	     label: "Gaana.com",
+	     click() {  win.loadURL('https://gaana.com') }
+	  }
   	]
   },
   {
