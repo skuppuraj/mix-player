@@ -15,6 +15,17 @@ const template = [
 	  {
 	     label: "Gaana.com",
 	     click() {  win.loadURL('https://gaana.com') }
+	  },
+	  { type: 'separator' },
+	  { 
+	  	 label:"New App request",
+	  	 click() {
+	  	 	require('electron').shell.openExternal('https://github.com/skuppuraj/mix-player/issues/new')
+	  	 }
+	  },
+	  {
+	  	 label: "Facing issues",
+	  	 click() {require('electron').shell.openExternal('https://github.com/skuppuraj/mix-player/issues')}
 	  }
   	]
   },
