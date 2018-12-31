@@ -1,17 +1,110 @@
-const {app, Menu, MenuItem, globalShortcut, BrowserView } = require('electron');
+const {app, Menu, MenuItem, globalShortcut, BrowserView, autoUpdater } = require('electron');
 const {BrowserWindow} = require('electron');
 const menu = new Menu()
 let win;
 let contents;
+const template = [
+  {
+  	label: "Main",
+  	submenu:[
+  		{
+  			label: "YouTube.com",
+  			click() {  win.loadURL('https://youtube.com') }
+
+  		},
+  		{
+  			label: "Gaana.com",
+  			click() {  win.loadURL('https://gaana.com') }
+  		}
+  	]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      { role: 'reload' },
+      { role: 'forcereload' },
+      { type: 'separator' },
+      { role: 'resetzoom' },
+      { role: 'zoomin' },
+      { role: 'zoomout' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' }
+    ]
+  },
+  {
+    role: 'window',
+    submenu: [
+      { role: 'minimize' },
+      { role: 'close' }
+    ]
+  },
+]
+
+if (process.platform === 'darwin') {
+  template.unshift({
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  })
+
+  // Edit menu
+  template[2].submenu.push(
+    { type: 'separator' },
+    {
+      label: 'Speech',
+      submenu: [
+        { role: 'startspeaking' },
+        { role: 'stopspeaking' }
+      ]
+    }
+  )
+
+  // Window menu
+  template[4].submenu = [
+    { role: 'close' },
+    { role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'front' }
+  ]
+}
+
 function createWindow(){
-	win = new BrowserWindow({width: 800, height: 1000,webPreferences:{nodeIntegration: false}});
+	win = new BrowserWindow({width: 1300, height: 800,webPreferences:{nodeIntegration: false}, show: false,
+	                        	title:"Mix Player",
+							});
 	contents = win.webContents;
 
 	win.loadURL('https://youtube.com');
-	// win.loadURL('https://gaana.com');
-	// win.webContents.openDevTools();
 	win.on("closed", ()=>{
 		win = null;
+	});
+
+	win.once('ready-to-show', () => {
+	  win.show()
 	});
 
 	globalShortcut.register('F8', () => {
@@ -26,6 +119,9 @@ function createWindow(){
 		contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true);
 		contents.executeJavaScript("document.querySelector('.prev-song').click()", true);
 	})
+
+	const menu = Menu.buildFromTemplate(template)
+	Menu.setApplicationMenu(menu)
 }
 
 app.on('ready', createWindow);
@@ -42,3 +138,5 @@ app.on('activate', ()=>{
 		createWindow()
 	}
 });
+
+require('update-electron-app')()
