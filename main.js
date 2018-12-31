@@ -1,4 +1,4 @@
-const {app, Menu, MenuItem, globalShortcut, BrowserView } = require('electron');
+const {app, Menu, MenuItem, globalShortcut, BrowserView, autoUpdater } = require('electron');
 const {BrowserWindow} = require('electron');
 const menu = new Menu()
 let win;
@@ -138,3 +138,5 @@ app.on('activate', ()=>{
 		createWindow()
 	}
 });
+
+require('update-electron-app')()
