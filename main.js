@@ -52,6 +52,7 @@ const template = [
     submenu: [
       { role: 'reload' },
       { role: 'forcereload' },
+      { role: 'toggledevtools' },
       { type: 'separator' },
       { role: 'resetzoom' },
       { role: 'zoomin' },
@@ -66,12 +67,14 @@ const template = [
       { label: 'Back',
         click(){
           win.webContents.goBack()
-        }
+        },
+        accelerator: 'CmdOrCtrl+['
       },
       { label: 'Forward',
         click(){
           win.webContents.goForward()
-        }
+        },
+        accelerator: 'CmdOrCtrl+]'
       }
     ]
   },
@@ -143,7 +146,8 @@ function createWindow(){
 	  win.show()
 	});
 
-  win.on('swipe', (e, d)=>{
+  win.on('swipe', function(e, d){
+
     console.log(d);
     win.loadURL('https://kuppuraj.in');
     if (d == 'right') {
