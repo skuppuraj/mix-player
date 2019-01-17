@@ -60,6 +60,21 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+   {
+    label: 'History',
+    submenu: [
+      { label: 'Back',
+        click(){
+          win.webContents.goBack()
+        }
+      },
+      { label: 'Forward',
+        click(){
+          win.webContents.goForward()
+        }
+      }
+    ]
+  },
   {
     role: 'window',
     submenu: [
@@ -98,7 +113,7 @@ if (process.platform === 'darwin') {
   )
 
   // Window menu
-  template[4].submenu = [
+  template[5].submenu = [
     { role: 'close' },
     { role: 'minimize' },
     { role: 'zoom' },
@@ -112,6 +127,7 @@ function createWindow(){
                                                       nodeIntegration: false, 
                                                       nativeWindowOpen: true,
                                                       safeDialogs: true,
+                                                      devTools:true
                                                     }, 
                             show: false,
 	                        	title:"Mix Player",
@@ -126,6 +142,14 @@ function createWindow(){
 	win.once('ready-to-show', () => {
 	  win.show()
 	});
+
+  win.on('swipe', (e, d)=>{
+    console.log(d);
+    win.loadURL('https://kuppuraj.in');
+    if (d == 'right') {
+      console.log('s')
+    }
+  });
 
 	globalShortcut.register('F8', () => {
 		contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true);
@@ -152,11 +176,24 @@ app.on('window-all-closed', ()=>{
 		app.quit();
 	}
 });
+app.on('window-all-closed', ()=>{
 
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
 app.on('activate', ()=>{
 	if (win === null) {
 		createWindow()
 	}
 });
+
+app.on('swipe', (e, d)=>{
+    console.log(d);
+    win.loadURL('https://kuppuraj.in');
+    if (d == 'right') {
+      console.log('s')
+    }
+  });
 
 require('update-electron-app')()
