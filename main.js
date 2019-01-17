@@ -16,6 +16,10 @@ const template = [
 	     label: "Gaana.com",
 	     click() {  win.loadURL('https://gaana.com') }
 	  },
+    {
+       label: "Saavn.com",
+       click() {  win.loadURL('https://jiosaavn.com') }
+    },
 	  { type: 'separator' },
 	  { 
 	  	 label:"New App request",
@@ -104,7 +108,12 @@ if (process.platform === 'darwin') {
 }
 
 function createWindow(){
-	win = new BrowserWindow({width: 1300, height: 800,webPreferences:{nodeIntegration: false}, show: false,
+	win = new BrowserWindow({width: 1300, height: 800,webPreferences:{
+                                                      nodeIntegration: false, 
+                                                      nativeWindowOpen: true,
+                                                      safeDialogs: true,
+                                                    }, 
+                            show: false,
 	                        	title:"Mix Player",
 							});
 	contents = win.webContents;
