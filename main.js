@@ -153,19 +153,26 @@ function createWindow(){
     if (d == 'right') {
       console.log('s')
     }
+     setImmediate(() => {
+    console.log('this happens asynchronously');
+  });
   });
 
 	globalShortcut.register('F8', () => {
+    var doc = "if(document.querySelector('#play').classList.contains('hide')){document.querySelector('#pause').click()}else{document.querySelector('#play').click()}";
 		contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true);
-		contents.executeJavaScript("document.querySelector('.play-song').click()", true);
+    contents.executeJavaScript("document.querySelector('.play-song').click()", true);
+		contents.executeJavaScript(doc, true);
 	})
 	globalShortcut.register('F9', () => {
 		contents.executeJavaScript("document.querySelector('.ytp-next-button').click()", true);
-		contents.executeJavaScript("document.querySelector('.next-song').click()", true);
+    contents.executeJavaScript("document.querySelector('.next-song').click()", true);
+		contents.executeJavaScript("document.querySelector('#fwd').click()", true);
 	})
 	globalShortcut.register('F7', () => {
 		contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true);
 		contents.executeJavaScript("document.querySelector('.prev-song').click()", true);
+    contents.executeJavaScript("document.querySelector('#rew').click()", true);
 	})
 
 	const menu = Menu.buildFromTemplate(template)
