@@ -132,7 +132,7 @@ function createWindow(){
                                                       safeDialogs: true,
                                                       devTools:true
                                                     }, 
-                            show: false,
+                            show: true,
 	                        	title:"Mix Player",
 							});
 	contents = win.webContents;
@@ -207,4 +207,4 @@ app.on('swipe', (e, d)=>{
     }
   });
 
-require('update-electron-app')()
+// require('update-electron-app')()
