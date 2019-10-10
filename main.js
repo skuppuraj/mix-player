@@ -1,6 +1,11 @@
+const setupEvents = require('./installers/setupEvents')
+ if (setupEvents.handleSquirrelEvent()) {
+    // squirrel event handled and app will exit in 1000ms, so don't do anything else
+    return;
+ }
 const {app, Menu, MenuItem, globalShortcut, BrowserView, autoUpdater } = require('electron');
 const {BrowserWindow} = require('electron');
-const menu = new Menu()
+const menu = new Menu();
 let win;
 let contents;
 const template = [
