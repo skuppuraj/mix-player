@@ -148,20 +148,13 @@ function createWindow(){
 
   win.on('swipe', function(e, d){
 
-    console.log(d);
-    win.loadURL('https://kuppuraj.in');
-    if (d == 'right') {
-      console.log('s')
-    }
-     setImmediate(() => {
-    console.log('this happens asynchronously');
-  });
   });
 
 	globalShortcut.register('F8', () => {
     var doc = "if(document.querySelector('#play').classList.contains('hide')){document.querySelector('#pause').click()}else{document.querySelector('#play').click()}";
 		contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true);
     contents.executeJavaScript("document.querySelector('.play-song').click()", true);
+    contents.executeJavaScript("document.querySelector('.yt-button-renderer').click()", true);
 		contents.executeJavaScript(doc, true);
 	})
 	globalShortcut.register('F9', () => {
@@ -198,13 +191,4 @@ app.on('activate', ()=>{
 		createWindow()
 	}
 });
-
-app.on('swipe', (e, d)=>{
-    console.log(d);
-    win.loadURL('https://kuppuraj.in');
-    if (d == 'right') {
-      console.log('s')
-    }
-  });
-
 // require('update-electron-app')()
