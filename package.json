@@ -1,12 +1,13 @@
 {
   "name": "mix-player",
-  "productName": "Mix Player",
+  "productName": "Mix Player view",
   "version": "1.0.0",
   "description": "One music player to control multiple streaming platform",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
