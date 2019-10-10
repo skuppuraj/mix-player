@@ -154,19 +154,19 @@ function createWindow(){
 		}
 	});
 
-	globalShortcut.register('F8', () => {
+	globalShortcut.register('MediaPlayPause', () => {
     var doc = "if(document.querySelector('#play').classList.contains('hide')){document.querySelector('#pause').click()}else{document.querySelector('#play').click()}";
 		contents.executeJavaScript("document.querySelector('.ytp-play-button').click()", true);
     contents.executeJavaScript("document.querySelector('.play-song').click()", true);
     contents.executeJavaScript("document.querySelector('.yt-button-renderer').click()", true);
 		contents.executeJavaScript(doc, true);
 	})
-	globalShortcut.register('F9', () => {
+	globalShortcut.register('MediaNextTrack', () => {
 		contents.executeJavaScript("document.querySelector('.ytp-next-button').click()", true);
     contents.executeJavaScript("document.querySelector('.next-song').click()", true);
 		contents.executeJavaScript("document.querySelector('#fwd').click()", true);
 	})
-	globalShortcut.register('F7', () => {
+	globalShortcut.register('MediaPreviousTrack', () => {
 		contents.executeJavaScript("document.querySelector('.ytp-prev-button').click()", true);
 		contents.executeJavaScript("document.querySelector('.prev-song').click()", true);
     contents.executeJavaScript("document.querySelector('#rew').click()", true);
