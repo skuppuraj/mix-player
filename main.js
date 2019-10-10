@@ -146,9 +146,13 @@ function createWindow(){
 	  win.show()
 	});
 
-  win.on('swipe', function(e, d){
-
-  });
+	win.on('swipe', function(e, direction){
+		if (direction == 'right') {
+			win.webContents.goBack();
+		}else if (direction == 'left') {
+			win.webContents.goForward();
+		}
+	});
 
 	globalShortcut.register('F8', () => {
     var doc = "if(document.querySelector('#play').classList.contains('hide')){document.querySelector('#pause').click()}else{document.querySelector('#play').click()}";
