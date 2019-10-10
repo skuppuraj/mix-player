@@ -1,7 +1,7 @@
 {
-  "name": "mix-player",
+  "name": "Mix Player",
   "version": "1.0.0",
-  "description": "One music player to controll multiple straming platform",
+  "description": "One music player to control multiple streaming platform",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
