@@ -1,5 +1,6 @@
 {
-  "name": "Mix Player",
+  "name": "mix-player",
+  "productName": "Mix Player",
   "version": "1.0.0",
   "description": "One music player to control multiple streaming platform",
   "main": "main.js",
@@ -22,7 +23,11 @@
   },
   "homepage": "https://github.com/skuppuraj/mix-player#readme",
   "devDependencies": {
-    "electron": "^4.0.0"
+    "electron": "^4.0.0",
+    "electron-installer-dmg": "^2.0.0",
+    "electron-packager": "^13.0.1",
+    "electron-winstaller": "^4.0.0",
+    "install": "^0.12.2"
   },
   "dependencies": {
     "update-electron-app": "^1.3.0"
