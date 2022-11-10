@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/skuppuraj/mix-player#readme",
   "devDependencies": {
-    "electron": "^4.0.0"
+    "electron": "^18.3.7"
   },
   "dependencies": {
     "update-electron-app": "^1.3.0"
